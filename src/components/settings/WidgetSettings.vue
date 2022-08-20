@@ -22,6 +22,7 @@
 import { defineProps } from 'vue';
 import qs from 'qs';
 import { useApi } from '@/api/api';
+import { useValidateCity } from '@/composables/useValidateCity';
 import { City } from '@/models/city';
 
 const { getCityCoordinates, getWeatherInCity } = useApi();
@@ -45,26 +46,31 @@ const queryParamsWeather = {
   lon: 0,
 };
 
+const { validate, validateSameCity } = useValidateCity();
+
 const addWidgetCity = async () => {
-  if (citiesList.value.length > 3) {
-    throw new Error('Больше 3 нельзя');
-  } else {
-    const paramsCoordinates = qs.stringify(queryParamsCoordinates);
-    const [city] = await getCityCoordinates(paramsCoordinates);
+  validate(queryParamsCoordinates, citiesList);
 
-    queryParamsWeather.lat = city.lat;
-    queryParamsWeather.lon = city.lon;
+  const paramsCoordinates = qs.stringify(queryParamsCoordinates);
+  const [city] = await getCityCoordinates(paramsCoordinates);
 
-    const paramsWeather = qs.stringify(queryParamsWeather);
-    const cityWidget = await getWeatherInCity(paramsWeather);
+  queryParamsWeather.lat = city.lat;
+  queryParamsWeather.lon = city.lon;
 
-    citiesList.value.push(cityWidget);
-  }
+  validateSameCity(citiesList, city);
+
+  const paramsWeather = qs.stringify(queryParamsWeather);
+  const cityWidget = await getWeatherInCity(paramsWeather);
+
+  cityWidget.lat = city.lat;
+  cityWidget.lon = city.lon;
+
+  citiesList.value.push(cityWidget);
 
   queryParamsCoordinates.q = '';
 };
 
 const removeCity = (city: City) => {
-  citiesList.value = [...citiesList.value.filter((el: City) => el.id !== city.id)];
+  citiesList.value = [...citiesList.value.filter((el: City) => el.lon !== city.lon)];
 };
 </script>

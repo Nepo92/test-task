@@ -1,5 +1,6 @@
 import axios from 'axios';
 
+axios.defaults.baseURL = process.env.VUE_APP_API;
 const appId = 'bbb8ed948b9970c6454c203515a9c0fe';
 
 const getCityCoordinates = async (params: string) => {
