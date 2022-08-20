@@ -1,0 +1,11 @@
+.widget-settings {
+  display: grid;
+  border: 1px solid black;
+  width: calc(100% - 30px);
+  margin: 60px auto;
+  max-width: 420px;
+  padding: 20px 15px;
+  border-radius: 10px;
+  position: relative;
+  min-height: 125px;
+}

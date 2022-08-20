@@ -14,5 +14,10 @@ module.exports = {
   rules: {
     'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
+    'vue/no-setup-props-destructure': 'off',
+    'vuejs-accessibility/form-control-has-label': 'off',
+    'import/prefer-default-export': 'off',
+    'import/no-unresolved': 'off',
+    'import/extensions': 'off',
   },
 };

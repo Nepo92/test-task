@@ -1,11 +1,13 @@
-.widget {
+.widget-main {
   display: grid;
   border: 1px solid black;
   width: calc(100% - 30px);
-  margin: 60px auto 0;
+  margin: 60px auto;
   max-width: 420px;
   padding: 20px 15px;
   border-radius: 10px;
+  position: relative;
+  min-height: 125px;
 
   &__header {
     display: grid;
@@ -27,7 +29,6 @@
 .widget-weather {
   &__img {
     display: block;
-    border: 1px solid black;
     width: auto;
     min-width: 105px;
     min-height: 70px;
@@ -42,7 +43,7 @@
 
 .description-list {
   &__item {
-    margin-top: 10px;
+    margin-top: 7px;
     font-size: 12px;
   }
 }
