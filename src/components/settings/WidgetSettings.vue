@@ -6,7 +6,6 @@
         <button class="settings-item__close" type="button" @click="() => openSettings()"></button>
       </li>
       <li class="widget-settings__item cities">
-        <!-- v-for="(item, index) in citiesList" :key="index" -->
         <draggable v-model="citiesList" item-key="id" handle=".city__burger" @end="endDragging">
           <template #item="{element}">
             <div class="city">
