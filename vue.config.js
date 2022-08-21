@@ -1,6 +1,7 @@
 const { defineConfig } = require('@vue/cli-service');
 
 module.exports = defineConfig({
+  publicPath: './',
   transpileDependencies: true,
   css: {
     loaderOptions: {
@@ -11,5 +12,11 @@ module.exports = defineConfig({
         `,
       },
     },
+  },
+  chainWebpack: (config) => {
+    config.plugin('html').tap((args) => {
+      args[0].publicPath = './';
+      return args;
+    });
   },
 });
