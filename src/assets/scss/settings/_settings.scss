@@ -33,4 +33,18 @@ ul {
   overflow: hidden;
   border-radius: 10px;
   margin: 30px auto;
+
+  &__link {
+    display: inline-block;
+    margin-bottom: 30px;
+    text-decoration: none;
+
+    &:visited {
+      color: $black;
+    }
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 }
