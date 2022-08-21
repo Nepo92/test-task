@@ -25,3 +25,12 @@ body {
 ul {
   list-style: none;
 }
+
+.widget {
+  max-width: 350px;
+  width: calc(100% - 30px);
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  margin: 30px auto;
+}

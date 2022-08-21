@@ -1,0 +1,20 @@
+.widget-empty {
+  @include widget;
+
+  padding: 0;
+
+  &__img {
+    width: 100%;
+    height: auto;
+  }
+
+  &__btn {
+    @include settings-button;
+  }
+}
+
+@media (min-width: 300px) {
+  .widget-empty {
+    padding: 0;
+  }
+}

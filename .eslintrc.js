@@ -19,5 +19,7 @@ module.exports = {
     'import/prefer-default-export': 'off',
     'import/no-unresolved': 'off',
     'import/extensions': 'off',
+    'no-param-reassign': 'off',
+    '@typescript-eslint/no-var-requires': 'off',
   },
 };

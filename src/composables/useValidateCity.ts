@@ -17,7 +17,7 @@ const validate = (queryParamsCoordinates: queryCity, citiesList: Ref<Array<City>
 };
 
 const validateSameCity = (citiesList: Ref<Array<City>>, city: City) => {
-  const haveCity = citiesList.value.find((el: City) => el.lon === city.lon);
+  const haveCity = citiesList.value.find((el: City) => el.name === city.name);
 
   if (haveCity) {
     throw new Error('Такой город уже есть');

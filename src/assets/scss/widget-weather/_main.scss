@@ -1,18 +1,28 @@
 .widget-main {
-  display: grid;
-  border: 1px solid black;
-  width: calc(100% - 30px);
-  margin: 60px auto;
-  max-width: 420px;
-  padding: 20px 15px;
-  border-radius: 10px;
-  position: relative;
-  min-height: 125px;
+  @include widget;
+
+  &__wrapper {
+    &:not(:first-child) {
+      margin-top: 20px;
+    }
+  }
 
   &__header {
     display: grid;
     grid-template-columns: auto auto;
     justify-content: space-between;
+    height: 25px;
+    font-weight: 700;
+  }
+}
+
+.widget-header {
+  &__location {
+    font-size: 16px;
+  }
+
+  &__settings {
+    @include settings-button;
   }
 }
 
@@ -30,13 +40,13 @@
   &__img {
     display: block;
     width: auto;
-    min-width: 105px;
+    min-width: 100px;
     min-height: 70px;
     height: auto;
   }
 
   &__temperature {
-    font-size: 24px;
+    font-size: 28px;
     font-weight: 600;
   }
 }
@@ -45,5 +55,72 @@
   &__item {
     margin-top: 7px;
     font-size: 12px;
+  }
+}
+
+.description-item {
+  &__wind-icon {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    mask-image: url("./assets/img/wind-arrow.svg");
+    background-color: $black;
+    mask-repeat: no-repeat;
+    mask-position: center;
+    mask-size: 200% 200%;
+    transform: translateY(4px);
+    margin-right: 5px;
+  }
+
+  &__barometer-icon {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    mask-image: url("./assets/img/barometer.svg");
+    background-color: $black;
+    mask-repeat: no-repeat;
+    mask-position: center;
+    mask-size: 120% 120%;
+    margin-left: 25px;
+    transform: translateY(5px) scale(1.4);
+  }
+}
+
+@media (min-width: 300px) {
+  .widget-body {
+    &__weather {
+      justify-content: center;
+    }
+  }
+
+  .widget-header {
+    &__location {
+      font-size: 20px;
+    }
+  }
+
+  .widget-weather {
+    &__temperature {
+      font-size: 38px;
+      margin-left: 20px;
+    }
+
+    &__img {
+      min-width: 105px;
+    }
+  }
+
+  .description-list {
+    &__item {
+      font-size: 14px;
+    }
+  }
+}
+
+@media (min-width: 350px) {
+  .widget-weather {
+    &__img {
+      min-width: 150px;
+    }
   }
 }
