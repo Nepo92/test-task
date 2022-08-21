@@ -1,5 +1,6 @@
 <template>
   <div class="widget">
+    <a class="widget__link" href="https://github.com/Nepo92/test-task">Ссылка на репозиторий проекта в github</a>
     <WidgetEmpty
       v-if="isEmpty"
       :appProps="appProps" />

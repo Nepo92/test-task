@@ -46,7 +46,6 @@
   align-content: center;
   align-items: center;
   user-select: none;
-  cursor: grab;
 
   &:not(:first-child) {
     margin-top: 10px;
@@ -81,6 +80,7 @@
     margin-right: 8px;
     align-content: center;
     transform: translateY(1px);
+    cursor: grab;
   }
 }
 
